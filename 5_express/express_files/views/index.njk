@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css"/>
+        <title>File upload demo</title>
+        <style>
+            .img {
+                min-width: 200px;
+                max-width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="uk-container uk-margin-top">
+            <form action="/upload" enctype="multipart/form-data" method="POST">
+                <input type="file" name="image">
+                <button type="submit" class="uk-button uk-button-default">Upload</button>
+            </form>
+            <div class="uk-margin-top">
+                {% for file in files %}
+                    <img src="/uploads/{{ file }}" alt="" class="uk-border-rounded img">
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
